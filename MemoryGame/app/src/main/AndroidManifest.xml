@@ -19,6 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //dodanie nowego activity
+        <activity android:name=".Play">
+            <intent-filter>
+                <action android:name=".Play"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+
+        </activity>
     </application>
 
 </manifest>
