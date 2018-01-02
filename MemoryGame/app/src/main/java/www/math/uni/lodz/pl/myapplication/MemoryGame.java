@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MemoryGame extends AppCompatActivity {
 
@@ -50,6 +51,7 @@ public class MemoryGame extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Reset_database();
             return true;
         }
 
@@ -65,4 +67,16 @@ public class MemoryGame extends AppCompatActivity {
         finish();
         System.exit(0);
     }
+
+    public void Reset_database()
+    {
+        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+
+        for(int i=0;i<11;i++)
+        {
+            db.update(i,"tempCategory","TempPath");
+        }
+        Toast.makeText(MemoryGame.this, "Done", Toast.LENGTH_SHORT).show();
+    }
+
 }

@@ -2,6 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="www.math.uni.lodz.pl.myapplication">
 
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera2.full" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,16 +31,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         //dodanie nowego activity
         <activity android:name=".Play">
             <intent-filter>
-                <action android:name=".Play"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name=".Play" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
-
         </activity>
+        <activity android:name=".AndroidCameraApi" />
+        <activity android:name=".gotoFirstCategory" />
+        <activity android:name=".gotoSecondCategory" />
+        <activity android:name=".gotoThirdCategory" />
+        <activity android:name=".gotoFourthCategory" />
+        <activity android:name=".gotoFifthCategory" />
+        <activity android:name=".gotoGame"></activity>
     </application>
 
 </manifest>
