@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         android:onClick="change2"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
@@ -55,7 +55,7 @@
         android:onClick="change3"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"
@@ -74,7 +74,7 @@
         android:onClick="change4"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
@@ -93,7 +93,7 @@
         android:onClick="change5"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"
@@ -112,7 +112,7 @@
         android:onClick="change6"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
@@ -131,7 +131,7 @@
         android:onClick="change7"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"
@@ -150,7 +150,7 @@
         android:onClick="change8"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
@@ -169,7 +169,7 @@
         android:onClick="change9"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"
@@ -188,7 +188,7 @@
         android:onClick="change10"
         android:scaleType="fitXY"
 
-        android:src="@drawable/q_mark"
+        android:src="@drawable/pudzian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
