@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +28,19 @@ public class gotoGame extends AppCompatActivity {
     public boolean swap8 = true;
     public boolean swap9 = true;
     public boolean swap10 = true;
+
+    public boolean clicked1 = false;
+    public boolean clicked2 = false;
+    public boolean clicked3 = false;
+    public boolean clicked4 = false;
+    public boolean clicked5 = false;
+    public boolean clicked6 = false;
+    public boolean clicked7 = false;
+    public boolean clicked8 = false;
+    public boolean clicked9 = false;
+    public boolean clicked10 = false;
+
+    public boolean lose = true;
     //Button button = (Button) findViewById(R.id.imageButton);
     String path1,path2,path3,path4,path5,path6,path7,path8,path9,path10;
     @Override
@@ -125,7 +140,7 @@ public class gotoGame extends AppCompatActivity {
             {
                 //i.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() +
                 //        File.separator + "MemoryGamePictures" + File.separator + "Noga" + "/pic1.jpg"));
-                if(clickCount==1)
+                if(clickCount==1 && clicked1 == false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path1));
                     swap1 = false;
@@ -149,44 +164,32 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
+                        i.setImageBitmap(BitmapFactory.decodeFile(path1));
                         //Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched1 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path1));
+                    lose = false;
                     swap1 = false;
-
                     firstClicked = 1;
+                    clicked1 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path1));
                 }
-            }
-            else
-            {
-                swap1 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
+                lose = true;
 
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==1)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==1)
-                {
-                    firstClicked = 0;
-                }
-                // Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -201,7 +204,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton2);
             if (swap2 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1 && clicked2==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path2));
                     swap2 = false;
@@ -225,44 +228,33 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
+                        i.setImageBitmap(BitmapFactory.decodeFile(path2));
                         //Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
+
                     }
                 }
-                if(clickCount==0 && matched1 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path2));
+                    lose = false;
                     swap2 = false;
-
                     firstClicked = 2;
+                    clicked2 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path2));
                 }
-            }
-            else
-            {
-                swap2 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
+                lose = true;
 
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==2)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==2)
-                {
-                    firstClicked = 0;
-                }
-                //Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -278,7 +270,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton3);
             if (swap3 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked3==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path3));
                     swap3 = false;
@@ -302,44 +294,32 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
-                       // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                        i.setImageBitmap(BitmapFactory.decodeFile(path3));
+                        // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched2 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path3));
+                    lose = false;
                     swap3 = false;
-
                     firstClicked = 3;
+                    clicked3 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path3));
                 }
-            }
-            else
-            {
-                swap3 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
+                lose = true;
 
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==3)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==3)
-                {
-                    firstClicked = 0;
-                }
-                //Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -354,7 +334,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton4);
             if (swap4 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked4==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path4));
                     swap4 = false;
@@ -378,43 +358,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
+                        i.setImageBitmap(BitmapFactory.decodeFile(path4));
                         //Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched2 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path4));
+                    lose = false;
                     swap4 = false;
-
                     firstClicked = 4;
+                    clicked4 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path4));
                 }
-            }
-            else
-            {
-                swap4 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==4)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==4)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -430,7 +398,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton5);
             if (swap5 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked5==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path5));
                     swap5 = false;
@@ -454,43 +422,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
-                       // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                        i.setImageBitmap(BitmapFactory.decodeFile(path5));
+                        // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched3 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path5));
+                    lose = false;
                     swap5 = false;
-
                     firstClicked = 5;
+                    clicked5 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path5));
                 }
-            }
-            else
-            {
-                swap5 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==5)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==5)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -506,7 +462,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton6);
             if (swap6 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked6==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path6));
                     swap6 = false;
@@ -530,43 +486,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
-                       // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                        i.setImageBitmap(BitmapFactory.decodeFile(path6));
+                        // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched3 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path6));
+                    lose = false;
                     swap6 = false;
-
                     firstClicked = 6;
+                    clicked6 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path6));
                 }
-            }
-            else
-            {
-                swap6 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==6)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==6)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -582,7 +526,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton7);
             if (swap7 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked7==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path7));
                     swap7 = false;
@@ -606,43 +550,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
+                        i.setImageBitmap(BitmapFactory.decodeFile(path7));
                         //Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched4 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path7));
+                    lose = false;
                     swap7 = false;
-
                     firstClicked = 7;
+                    clicked7 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path7));
                 }
-            }
-            else
-            {
-                swap7 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==7)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==7)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -658,7 +590,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton8);
             if (swap8 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked8==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path8));
                     swap8 = false;
@@ -682,44 +614,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
-                       // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                        i.setImageBitmap(BitmapFactory.decodeFile(path8));
+                        // Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched4 == false)
+                else if(clickCount==0 && lose ==true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path8));
+                    lose = false;
                     swap8 = false;
-
                     firstClicked = 8;
+                    clicked8 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path8));
                 }
-            }
-            else
-            {
-                swap8 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==8)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==8)
-                {
-                    firstClicked = 0;
-                }
-
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -735,7 +654,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton9);
             if (swap9 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1&& clicked9==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path9));
                     swap9 = false;
@@ -759,43 +678,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
-                       // Toast.makeText(getApplication(), "Try again!"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+                        i.setImageBitmap(BitmapFactory.decodeFile(path9));
+                        // Toast.makeText(getApplication(), "Try again!"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched5 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path9));
+                    lose = false;
                     swap9 = false;
-
                     firstClicked = 9;
+                    clicked9 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path9));
                 }
-            }
-            else
-            {
-                swap9 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==9)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==9)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -812,7 +719,7 @@ public class gotoGame extends AppCompatActivity {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton10);
             if (swap10 || clickCount>2)
             {
-                if(clickCount==1)
+                if(clickCount==1 && clicked10==false)
                 {
                     i.setImageBitmap(BitmapFactory.decodeFile(path10));
                     swap10 = false;
@@ -836,44 +743,31 @@ public class gotoGame extends AppCompatActivity {
                     }
                     else
                     {
+                        i.setImageBitmap(BitmapFactory.decodeFile(path10));
                         //Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
                         TextView tv3 = (TextView)findViewById(R.id.textView5);
                         tv3.setTextColor(Color.parseColor("#FF0000"));
                         tv3.setText("Try again :(");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                // yourMethod();
+                                swapWhenLose();
+                                lose = false;
+                            }
+                        }, 2000);   //2 seconds
                     }
                 }
-                if(clickCount==0 && matched5 == false)
+                else if(clickCount==0 && lose == true)
                 {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path10));
+                    lose = false;
                     swap10 = false;
-
                     firstClicked = 10;
+                    clicked10 = true;
                     clickCount++;
+                    i.setImageBitmap(BitmapFactory.decodeFile(path10));
                 }
-            }
-            else
-            {
-                //Toast.makeText(getApplication(), "!!!1", Toast.LENGTH_SHORT).show();
-                swap10 = true;
-                i.setImageResource(R.drawable.pudzian);
-                clickCount--;
-
-                if(secondClicked!=0)
-                {
-                    if(secondClicked==10)
-                    {
-                        secondClicked=0;
-                    }
-                    else
-                    {
-                        firstClicked = secondClicked;
-                        secondClicked = 0;
-                    }
-                }
-                else if(firstClicked==10)
-                {
-                    firstClicked = 0;
-                }
+                lose = true;
 
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
@@ -891,57 +785,79 @@ public class gotoGame extends AppCompatActivity {
         clickCount = 0;
         firstClicked = 0;
         secondClicked = 0;
-        if(!swap1)
+
+
+        clicked1 = false;
+        clicked2 = false;
+        clicked3 = false;
+        clicked4 = false;
+        clicked5 = false;
+        clicked6 = false;
+        clicked7 = false;
+        clicked8 = false;
+        clicked9 = false;
+        clicked10 = false;
+
+        if(!swap1 && matched1==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap2)
+        if(!swap2 && matched1==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton2);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap3)
+        if(!swap3 && matched1==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton3);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap4)
+        if(!swap4 && matched1==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton4);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap5)
+        if(!swap5 && matched3==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton5);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap6)
+        if(!swap6 && matched3==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton6);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap7)
+        if(!swap7 && matched4==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton7);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap8)
+        if(!swap8 && matched4==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton8);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap9)
+        if(!swap9 && matched5==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton9);
             i.setImageResource(R.drawable.pudzian);
         }
-        if(!swap10)
+        if(!swap10 && matched5==false)
         {
             ImageButton i = (ImageButton) findViewById(R.id.imageButton10);
             i.setImageResource(R.drawable.pudzian);
         }
-
+         swap1 = true;
+        swap2 = true;
+        swap3 = true;
+        swap4 = true;
+        swap5 = true;
+        swap6 = true;
+         swap7 = true;
+         swap8 = true;
+        swap9 = true;
+        swap10 = true;
     }
 
 
