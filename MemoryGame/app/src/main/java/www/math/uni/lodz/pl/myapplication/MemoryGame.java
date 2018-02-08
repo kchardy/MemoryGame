@@ -62,6 +62,7 @@ public class MemoryGame extends AppCompatActivity {
         Intent move = new Intent (".Play");
         startActivity(move);
     }
+
     //zamykanie aplikacji przyciskiem exit
     public void wyjscie(View view){
         finish();
@@ -70,11 +71,11 @@ public class MemoryGame extends AppCompatActivity {
 
     public void Reset_database()
     {
-        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+        SimpleDatabaseHelper databaseHelper = new SimpleDatabaseHelper(this);
 
         for(int i=0;i<11;i++)
         {
-            db.update(i,"tempCategory","TempPath");
+            databaseHelper.update(i,"tempCategory","TempPath");
         }
         Toast.makeText(MemoryGame.this, "Done", Toast.LENGTH_SHORT).show();
     }

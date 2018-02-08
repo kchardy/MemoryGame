@@ -22,15 +22,9 @@ public class gotoFirstCategory extends AppCompatActivity {
 
 
         //baza danych
-        TextView tv = (TextView)findViewById(R.id.textView2);
+     /*   TextView tv = (TextView)findViewById(R.id.textView2);
 
-        //SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
-        /*
-        for(int i=0;i<10;i++)
-        {
-            db.add("tempCategory","TempPath");
-        }
-        */
+
         Cursor p = db.getAll();
         int y=0;
         while(p.moveToNext())
@@ -42,7 +36,7 @@ public class gotoFirstCategory extends AppCompatActivity {
             tv.setText(tv.getText()+"\n"+"ID:"+id+" Category:"+tytul+" "+"Path:"+nr);
             if(y==10)break;
         }
-        y=0;
+        y=0;*/
     }
     @Override
     public void onResume() {
@@ -52,11 +46,11 @@ public class gotoFirstCategory extends AppCompatActivity {
 
         ImageView mImageView;
         String path;
-        int j=0;
+        int numberOfPicture =0;
         while(k.moveToNext()) {
-            j++;
+            numberOfPicture++;
             //1
-            if (j == 1) {
+            if (numberOfPicture == 1) {
                 mImageView = (ImageView) findViewById(R.id.imageView);
                 String nr = k.getString(2);
                 path = nr;
@@ -65,13 +59,13 @@ public class gotoFirstCategory extends AppCompatActivity {
             }
 
             //2
-            if (j == 2) {
+            if (numberOfPicture == 2) {
                 mImageView = (ImageView) findViewById(R.id.imageView2);
                 String nr = k.getString(2);
                 path = nr;
                 mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
             }
-            if(j==2)break;
+            if(numberOfPicture==2)break;
         }
         k.close();
     }
